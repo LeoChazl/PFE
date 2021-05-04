@@ -221,7 +221,7 @@ train, test = supervised_values[0:-split_index], supervised_values[-split_index:
 scaler, train_scaled, test_scaled = scale(train, test)
 
 # fit the model
-lstm_model = fit_lstm(train_scaled, 14, 10, 4)
+lstm_model = fit_lstm(train_scaled, 1, 500, 4)
 
 # forecast the entire training dataset to build up state for forecasting
 train_reshaped = train_scaled[:, 0].reshape(len(train_scaled), 1, 1)
@@ -232,7 +232,7 @@ predictions = list()
 for i in range(len(test_scaled)):
 	# make one-step forecast
 	X, y = test_scaled[i, 0:-1], test_scaled[i, -1]
-	yhat = forecast_lstm(lstm_model, 14, X)
+	yhat = forecast_lstm(lstm_model, 1, X)
 	# invert scaling
 	yhat = invert_scale(scaler, X, yhat)
 	# invert differencing
