@@ -1,0 +1,4 @@
+Magnitude: 4.5+
+Date: 1960-01-01 00:00:00 to 2020-12-31 23:59:59
+Geographic region: Custom rectangle Latitude [36.433, 40.157] Longitude [140.317, 144.492] 
+Event type: Earthquakes only
